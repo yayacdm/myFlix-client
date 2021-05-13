@@ -10,8 +10,9 @@ can learn more about movies I’ve watched or am interested in.
 -As a user, I want to be able to create a profile so I can save data about my favorite movies.
 
 Dependencies:
-Parcel
-React
-React-DOM
+-Parcel
+-React
+-React-DOM
 
-Parcel path to index: Desktop/CF/myFlix-client/src/index.html
+Parcel path to index: 
+Desktop/CF/myFlix-client/src/index.html
