@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './login-view.scss';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -25,4 +26,8 @@ export function LoginView(props) {
       <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
+}
+
+export function Button({ label }) {
+  return <button className="login-button">{label}</button>;
 }
