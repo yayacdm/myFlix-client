@@ -27,6 +27,8 @@ export function LoginView(props) {
       </label>
       <br />
       <button type="submit" onClick={handleSubmit}>Submit</button>
+      <br />
+      <button type="secondary" onClick={props.toggleRegister}>Register</button>
     </form>
   );
 }
