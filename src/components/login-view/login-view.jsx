@@ -16,19 +16,20 @@ export function LoginView(props) {
 
   return (
     <form className="login-form">
-      <label>
+      <label className="loginput">
         Username:
         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
       </label>
       <br />
-      <label>
+      <label className="loginput">
         Password:
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <br />
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-      <br />
-      <button type="secondary" onClick={props.toggleRegister}>Register</button>
+      <span>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
+        <button type="secondary" onClick={props.toggleRegister}>Register</button>
+      </span>
     </form>
   );
 }

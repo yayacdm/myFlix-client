@@ -1,0 +1,15 @@
+.login-button {
+  display: inline-block;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  margin: 10px;
+}
+
+.reginput {
+  padding: 5px;
+}

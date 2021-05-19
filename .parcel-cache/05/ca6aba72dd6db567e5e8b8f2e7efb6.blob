@@ -1,0 +1,34 @@
+.login-form {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: left;
+}
+
+.loginput {
+  padding: 5px;
+  width: 200px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 2px;
+  border: 3px;
+}
+.reg-form {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: left;
+}
+
+.reginput {
+  padding: 5px;
+  width: 200px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 2px;
+  border: 3px;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_b8991b59c49073275f7eb8fa6ef9830a.css.map */
