@@ -1,0 +1,12 @@
+.LoginForm {
+  margin: 15px;
+  max-width: 200px;
+}
+.RegForm {
+  margin: 15px;
+  max-width: 300px;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_b8991b59c49073275f7eb8fa6ef9830a.css.map */

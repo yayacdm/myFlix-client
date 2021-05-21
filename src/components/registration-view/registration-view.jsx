@@ -17,29 +17,29 @@ export function RegistrationView(props) {
   }
 
   return (
-    <form className="reg-form">
-      <label className="reginput">
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label className="reginput">
-        Password:
-      <input type="text" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <label className="reginput">
-        Email:
-      <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
-      </label>
-      <label className="reginput">
-        Birthdate:
-      <input type="text" value={birthdate} onChange={e => setBirthdate(e.target.value)} />
-      </label>
+    <Form className="RegForm">
+      <Form.Group controlId="formGroupUsername">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
+      </Form.Group>
+      <Form.Group controlId="formGroupPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+      </Form.Group>
+      <Form.Group controlId="formGroupEmail">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+      </Form.Group>
+      <Form.Group controlId="formGroupBirthdate">
+        <Form.Label>Birthdate</Form.Label>
+        <Form.Control type="date" placeholder="00-00-0000" value={birthdate} onChange={e => setBirthdate(e.target.value)} />
+      </Form.Group>
       <span>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>
         {' '}
         <Button variant="secondary" onClick={handleSubmit}>Back</Button>
       </span>
-    </form>
+    </Form >
   )
 }
 
