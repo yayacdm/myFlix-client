@@ -1,4 +1,6 @@
 .LoginForm {
   margin: 15px;
   max-width: 200px;
+  border: 10px;
+  border-color: black;
 }
