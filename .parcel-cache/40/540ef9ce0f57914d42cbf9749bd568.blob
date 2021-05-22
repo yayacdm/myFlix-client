@@ -9,7 +9,3 @@
 .movie-poster {
   padding-bottom: 20px;
 }
-
-.movie-title, .movie-description, .movie-year {
-  padding: 5px;
-}

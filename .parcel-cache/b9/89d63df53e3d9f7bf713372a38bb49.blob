@@ -11,5 +11,5 @@
 }
 
 .movie-title, .movie-description, .movie-year {
-  padding: 5px;
+  padding: 10px;
 }

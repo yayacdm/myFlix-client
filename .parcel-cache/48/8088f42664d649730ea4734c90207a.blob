@@ -10,6 +10,6 @@
   padding-bottom: 20px;
 }
 
-.movie-title, .movie-description, .movie-year {
-  padding: 5px;
+.movie-view {
+  padding: 15px;
 }

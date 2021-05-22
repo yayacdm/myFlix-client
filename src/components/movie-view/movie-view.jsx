@@ -9,7 +9,7 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Jumbotron className="MovieView">
+      <Jumbotron fluid className="MovieView">
         <div className="movie-view">
           <div className="movie-poster">
             <img src={movie.ImagePath} />
@@ -21,6 +21,10 @@ export class MovieView extends React.Component {
           <div className="movie-description">
             <span className="label">Description: </span>
             <span className="value">{movie.Description}</span>
+          </div>
+          <div className="movie-year">
+            <span className="label">Released: </span>
+            <span className="value">{movie.Year}</span>
           </div>
           <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
         </div>
