@@ -1,0 +1,7 @@
+.my-flix {
+  color: steelblue;
+}
+
+.Container {
+  margin: 50px;
+}
