@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export class MovieCard extends React.Component {
   render() {
@@ -13,7 +13,7 @@ export class MovieCard extends React.Component {
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
+          <Button variant="info" onClick={() => onMovieClick(movie)} >Open</Button>
         </Card.Body>
       </Card>
     );
