@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head><link rel="stylesheet" href="/index.HASH_REF_b8991b59c49073275f7eb8fa6ef9830a.css">
+  <title>myFlix</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <h1> MyFlix</h1>
+  <div id="app-container"></div>
+  <script src="/index.HASH_REF_729dc28ffc5c08066563f907f736a514.js"></script>
+</body>
+
+</html>

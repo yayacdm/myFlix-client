@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+  margin: 50px;
+}
+
+.Container {
+  margin: 100px;
+}
+
+.myFlixApplication {
+  font-family: "Source Code Pro", monospace;
+}

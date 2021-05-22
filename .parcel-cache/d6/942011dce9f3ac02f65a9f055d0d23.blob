@@ -1,0 +1,11 @@
+.MovieView {
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.movie-poster {
+  padding-bottom: 20px;
+}

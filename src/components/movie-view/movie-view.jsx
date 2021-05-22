@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
 

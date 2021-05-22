@@ -1,0 +1,12 @@
+.my-flix {
+  color: steelblue;
+}
+
+.Container {
+  margin: 50px;
+}
+
+.myFlixApplication {
+  font-family: "Source Code Pro", monospace;
+  background-color: darkcyan;
+}

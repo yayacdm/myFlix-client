@@ -1,0 +1,7 @@
+.MovieView {
+  text-align: center;
+}
+
+.movie-title {
+  font-weight: bold;
+}
