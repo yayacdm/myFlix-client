@@ -3,6 +3,8 @@ import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import './movie-view.scss';
 
+import { Link } from "react-router-dom";
+
 export class MovieView extends React.Component {
 
   render() {
@@ -27,6 +29,14 @@ export class MovieView extends React.Component {
             <span className="value">{movie.Year}</span>
           </div>
           <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
+
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <Button variant="link">Director</Button>
+          </Link>
+
+          <Link to={`/genres/${movie.Genre.Name}`}>
+            <Button variant="link">Genre</Button>
+          </Link>
         </div>
       </Jumbotron>
     );
