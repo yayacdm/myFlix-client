@@ -38,7 +38,9 @@ export function LoginView(props) {
       <span>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>
         {' '}
-        <Button variant="warning" onClick={props.toggleRegister}>Register</Button>
+        <Link to={`/register`}>
+          <Button variant="warning" type="link">Register</Button>
+        </Link>
       </span>
     </Form>
   );
@@ -49,6 +51,5 @@ LoginView.propTypes = {
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
   }),
-  onLoggedIn: PropTypes.func.isRequired,
-  onRegister: PropTypes.func,
+  onLoggedIn: PropTypes.func.isRequired
 };
