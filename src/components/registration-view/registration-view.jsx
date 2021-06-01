@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+//import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import './registration-view.scss';
 import Form from 'react-bootstrap/Form';
@@ -18,11 +18,11 @@ export function RegistrationView(props) {
     props.onRegister(username);
   }
 
-  axios.post('http://localhost:8010/proxy/users', {
+  axios.post('https://movieapi-yayacdm.herokuapp.com/users', {
     Username: username,
     Password: password,
     Email: email,
-    Birthday: birthday
+    Birthdate: birthdate
   })
     .then(response => {
       const data = response.data;

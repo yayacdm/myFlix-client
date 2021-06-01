@@ -1,9 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card'
-import "./genre-view.scss"
-
+import './genre-view.scss';
 
 export class GenreView extends React.Component {
 
@@ -11,21 +9,19 @@ export class GenreView extends React.Component {
     const { genre, onBackClick } = this.props;
 
     return (
-      <Card border="info" bg="dark" text="white" className="genre-card">
-        <Card.Body>
-          <Card.Title><span className='text-primary'>Name: </span> {genre.Name}</Card.Title>
-          <Card.Text><span className='text-primary'>Bio: </span>{genre.Description}</Card.Text>
-          <Button block onClick={() => { onBackClick(); }}>Back</Button>
-        </Card.Body>
-      </Card>
+      <Jumbotron fluid className="GenreView">
+        <div className="genre-view">
+          <div className="genre-name">
+            <span className="label">Genre: </span>
+            <span className="value">{genre.Name}</span>
+          </div>
+          <div className="genre-description">
+            <span className="label">Description: </span>
+            <span className="value">{genre.Description}</span>
+          </div>
+          <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
+        </div>
+      </Jumbotron>
     );
   }
 }
-
-GenreView.propTypes = {
-  genre: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-  }),
-  onBackClick: PropTypes.func.isRequired
-};
