@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     /* Send a request to the server for authentication */
-    axios.post('http://localhost:8010/proxy/login', {
+    axios.post('https://movieapi-yayacdm.herokuapp.com/login', {
       Username: username,
       Password: password
     })
@@ -38,7 +39,9 @@ export function LoginView(props) {
       <span>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>
         {' '}
-        <Button variant="warning">Register</Button>
+        <Link to={`/register`}>
+          <Button variant="link">Register</Button>
+        </Link>
       </span>
     </Form>
   );

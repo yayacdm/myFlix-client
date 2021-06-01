@@ -5,6 +5,7 @@ import axios from 'axios';
 import './registration-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ export function RegistrationView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthdate);
-    props.onRegister(username);
+    props.onRegister(username, password, email, birthdate);
   }
 
   axios.post('https://movieapi-yayacdm.herokuapp.com/users', {
@@ -61,5 +62,5 @@ export function RegistrationView(props) {
 }
 
 RegistrationView.propTypes = {
-  //onRegister: PropTypes.func.isRequired
+  onRegister: PropTypes.func.isRequired
 };
