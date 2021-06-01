@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -39,7 +38,7 @@ export function LoginView(props) {
       <span>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>
         {' '}
-        <Link to='/register'>Register</Link>
+        <Button variant="warning">Register</Button>
       </span>
     </Form>
   );
