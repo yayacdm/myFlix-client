@@ -85,6 +85,13 @@ export class MainView extends React.Component {
     });
   }
 
+  onRegister(register) {
+    console.log(register);
+    this.setState({
+      register,
+    });
+  }
+
   render() {
     const { movies, user } = this.state;
 
