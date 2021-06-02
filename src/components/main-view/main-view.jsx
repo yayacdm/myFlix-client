@@ -31,6 +31,7 @@ export class MainView extends React.Component {
         user: localStorage.getItem('user')
       });
       this.getMovies(accessToken);
+      this.getUsers(accessToken);
     }
   }
 
@@ -49,6 +50,21 @@ export class MainView extends React.Component {
       });
   }
 
+  getUsers(token) {
+    axios.get('https://movieapi-yayacdm.herokuapp.com/users', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          users: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -58,6 +74,7 @@ export class MainView extends React.Component {
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
+    this.getUsers(authData.token);
   }
 
   onLoggedOut() {
@@ -92,9 +109,14 @@ export class MainView extends React.Component {
             </Col>
           }} />
 
-          <Route path="/profile" render={() => {
+          <Route path="/users/:userId" render={() => {
             if (!user) return <Col>
-              <ProfileView />
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+            return <Col>
+              <ProfileView onLoggedIn={user => this.onLoggedIn(user)}
+                movies={movies} user={user}
+                onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
