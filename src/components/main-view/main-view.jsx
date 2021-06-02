@@ -12,6 +12,9 @@ import { ProfileView } from '../profile-view/profile-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { Navbar } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 export class MainView extends React.Component {
 
@@ -98,6 +101,22 @@ export class MainView extends React.Component {
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
+          <Navbar bg="primary" variant="dark">
+            <ul>
+              <Link to={`/users/${user}`}>
+                <Button variant="link" className="navbar-link text-light">Profile</Button>
+              </Link>
+              <Link to={`/`}>
+                <Button variant="link" className="navbar-link text-light">Movies</Button>
+              </Link >
+              <Link to={`/`}>
+                <Button variant="link" className="navbar-link text-light"
+                  onClick={() => this.onLoggedOut()}
+                >Logout</Button>
+              </Link >
+            </ul >
+          </Navbar >
+
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
