@@ -8,6 +8,7 @@ import { LoginView } from '../login-view/login-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { RegistrationView } from '../registration-view/registration-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -88,6 +89,12 @@ export class MainView extends React.Component {
             if (user) return <Redirect to="/" />
             return <Col>
               <RegistrationView />
+            </Col>
+          }} />
+
+          <Route path="/profile" render={() => {
+            if (!user) return <Col>
+              <ProfileView />
             </Col>
           }} />
 
