@@ -13,7 +13,7 @@ import { ProfileView } from '../profile-view/profile-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { Navbar } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 import './main-view.scss';
@@ -103,21 +103,24 @@ export class MainView extends React.Component {
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
-          <Navbar className="navbar" bg="dark" variant="dark" fixed="top">
-            <ul>
-              <Link to={`/users/${user}`}>
-                <Button variant="link" className="navbar-link text-light">Profile</Button>
-              </Link>
-              <Link to={`/`}>
-                <Button variant="link" className="navbar-link text-light">Movies</Button>
-              </Link >
-              <Link to={`/`}>
-                <Button variant="link" className="navbar-link text-light"
-                  onClick={() => this.onLoggedOut()}
-                >Logout</Button>
-              </Link >
-            </ul >
-          </Navbar >
+          <Container>
+            <Navbar bg="dark" variant="dark" fixed="top">
+              <Navbar.Brand>Welcome to MyFlix!</Navbar.Brand>
+              <ul>
+                <Link to={`/`}>
+                  <Button variant="link" className="navbar-link text-light">Movies</Button>
+                </Link >
+                <Link to={`/users/${user}`}>
+                  <Button variant="link" className="navbar-link text-light">Profile</Button>
+                </Link>
+                <Link to={`/`}>
+                  <Button variant="link" className="navbar-link text-light"
+                    onClick={() => this.onLoggedOut()}
+                  >Logout</Button>
+                </Link >
+              </ul >
+            </Navbar >
+          </Container>
 
           <Route exact path="/" render={() => {
             if (!user) return <Col>
