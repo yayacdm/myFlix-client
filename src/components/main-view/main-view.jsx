@@ -16,6 +16,8 @@ import Button from 'react-bootstrap/Button';
 import { Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
+import './main-view.scss';
+
 export class MainView extends React.Component {
 
   constructor() {
@@ -101,7 +103,7 @@ export class MainView extends React.Component {
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
-          <Navbar bg="primary" variant="dark">
+          <Navbar className="navbar" bg="dark" variant="dark" fixed="top">
             <ul>
               <Link to={`/users/${user}`}>
                 <Button variant="link" className="navbar-link text-light">Profile</Button>
