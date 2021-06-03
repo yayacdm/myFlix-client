@@ -64,6 +64,7 @@ export class MainView extends React.Component {
         this.setState({
           users: response.data
         });
+        console.log(response)
       })
       .catch(function (error) {
         console.log(error);

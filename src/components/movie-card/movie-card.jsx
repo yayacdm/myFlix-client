@@ -40,6 +40,5 @@ MovieCard.propTypes = {
     ImagePath: PropTypes.string.isRequired,
     Featured: PropTypes.bool.isRequired,
     Year: PropTypes.string.isRequired
-  }).isRequired,
-  //onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 };
