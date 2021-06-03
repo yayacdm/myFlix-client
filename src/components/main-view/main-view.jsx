@@ -98,7 +98,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user, history } = this.state;
 
     return (
       <Router>
@@ -141,9 +141,7 @@ export class MainView extends React.Component {
           }} />
 
           <Route path="/users/:userId" render={() => {
-            if (!user) return <Col>
-              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-            </Col>
+            if (!user) return
             return <Col>
               <ProfileView onLoggedIn={user => this.onLoggedIn(user)}
                 movies={movies} user={user}
