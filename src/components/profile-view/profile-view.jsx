@@ -6,7 +6,7 @@ import './profile-view.scss';
 export class ProfileView extends React.Component {
 
   render() {
-    const { user, onBackClick } = this.props;
+    const { user } = this.props;
 
     return (
       <Jumbotron fluid className="ProfileView">
@@ -23,7 +23,7 @@ export class ProfileView extends React.Component {
             <span className="label">Birthdate: </span>
             <span className="value">{user.Birthday}</span>
           </div>
-          <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="secondary" size="sm">Back</Button>
         </div>
       </Jumbotron>
     );
