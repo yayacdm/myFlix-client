@@ -298,11 +298,9 @@ export class ProfileView extends React.Component {
                               <Link to={`/movies/${movie._id}`}>
                                 <Card.Title as='h6'>{movie.Title}</Card.Title>
                               </Link>
+                              <Button className='mb-30' onClick={() => this.removeFavorite(movie)}>Remove</Button>
                             </Card.Body>
                           </Card>
-                          <Button className='mb-30' onClick={() => this.removeFavorite(movie)}>
-                            Remove
-                      </Button>
                         </div>
                       </Col>
                     );
