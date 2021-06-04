@@ -171,7 +171,6 @@ export class ProfileView extends React.Component {
                     <span className="label">Birthdate: </span>
                     <span className="value">{user.Birthday}</span>
                   </div>
-                  <Button variant="secondary" size="sm">Back</Button>
                 </div>
               </Jumbotron>
 
@@ -287,7 +286,7 @@ export class ProfileView extends React.Component {
                   textAlign: "center",
                 }}
               >
-                <Card.Text className="mt-200" as='h3'>Your Favorite Movies:</Card.Text>
+                <Card.Text className="mt-200" as='h3'>Favorites:</Card.Text>
                 <Row className='mb-20'>
                   {FavoriteMovieList.map((movie) => {
                     return (

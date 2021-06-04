@@ -85,7 +85,7 @@ export function RegistrationView(props) {
       <span>
         <Button variant="primary" onClick={handleSubmit}>Submit</Button>
         {' '}
-        <Button variant="secondary" onClick={handleSubmit}>Back</Button>
+        <Button variant="secondary" onClick={history.goBack}>Back</Button>
       </span>
     </Form >
   )
