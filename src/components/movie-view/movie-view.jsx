@@ -3,10 +3,35 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import './movie-view.scss';
-
+import axios from 'axios';
 import { Link } from "react-router-dom";
 
 export class MovieView extends React.Component {
+  handleAdd() {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    axios.post(`https://movieapi-yayacdm.herokuapp.com/users/${user}` + "/movies/" +
+      this.props.movie._id, {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then((response) => {
+        console.log(response);
+        alert(this.props.movie.Title + " has been added to your favorites!");
+      })
+  }
+
+  handleRemove() {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    axios.delete(`https://movieapi-yayacdm.herokuapp.com/users/${user}` + "/movies/" +
+      this.props.movie._id, {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then((response) => {
+        console.log(response);
+        alert(this.props.movie.Title + " has been removed from your favorites!");
+      })
+  }
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -37,6 +62,14 @@ export class MovieView extends React.Component {
 
           <Link to={`/genres/${movie.Genre.Name}`}>
             <Button variant="link">Genre</Button>
+          </Link>
+        </div>
+        <div>
+          <Link to={`/movies/${movie._id}`}>
+            <Button block variant="success" onClick={() => this.handleAdd(movie)}>Add to favorites</Button>
+          </Link>
+          <Link to={`/movies/${movie._id}`}>
+            <Button block variant="danger" onClick={() => this.handleRemove(movie)}>Remove from favorites</Button>
           </Link>
         </div>
       </Jumbotron>
