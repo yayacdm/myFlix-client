@@ -1,0 +1,96 @@
+var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  var _reactBootstrapButton = require('react-bootstrap/Button');
+  var _reactBootstrapButtonDefault = _parcelHelpers.interopDefault(_reactBootstrapButton);
+  var _jsxFileName = "/Users/yaya/Desktop/CF/myFlix-client/src/components/movie-card/Favorite.jsx", _s = $RefreshSig$();
+  function Favorite() {
+    _s();
+    const [hidden, setHidden] = _react.useState('');
+    const [favorites] = _react.useState(user.data.movies);
+    useEffect(() => {
+      const result = user.data.movies.find(m => m === movie._id);
+      result ? setHidden('hidden') : setHidden('');
+    }, favorites);
+    /*
+    Add movie to user's favorites
+    */
+    const addToFavorites = () => {
+      _axiosDefault.default.put(`https://movieapi-yayacdm.herokuapp.com/users/${user.data.username}/${movie._id}`, {}, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      }).then(user => {
+        setUser(user.data, 'update');
+        setHidden('hidden');
+        localStorage.setItem('user', JSON.stringify(user.data));
+      }).catch(err => {
+        console.log(err.response);
+      });
+    };
+    /*
+    Remove movie from user's favorites
+    */
+    const removeFromFavorites = () => {
+      _axiosDefault.default.delete(`https://movieapi-yayacdm.herokuapp.com/users/${user.data.username}/${movie._id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`
+        }
+      }).then(user => {
+        console.log(user.data);
+        setUser(user.data, 'update');
+        setHidden('');
+        localStorage.setItem('user', JSON.stringify(user.data));
+      }).catch(err => {
+        console.log(err.response);
+      });
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        hidden: hidden,
+        onClick: addToFavorites,
+        className: "add mt-3 w-100",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54,
+          columnNumber: 7
+        }
+      }, "Add"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        hidden: !hidden,
+        onClick: removeFromFavorites,
+        className: "remove mt-3 w-100",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55,
+          columnNumber: 7
+        }
+      }, "Remove"))
+    );
+  }
+  _s(Favorite, "Z9Ui0E65YzDml3iFBymgdAgS2es=");
+  _c = Favorite;
+  exports.default = Favorite;
+  var _c;
+  $RefreshReg$(_c, "Favorite");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
