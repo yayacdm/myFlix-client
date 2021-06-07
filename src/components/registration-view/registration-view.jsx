@@ -65,25 +65,28 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Form className="RegForm" >
+    <Form className="RegForm" onSubmit={handleSubmit}>
       <Form.Group controlId="formGroupUsername">
         <Form.Label>Username</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} required />
+        <Form.Control.Feedback type="invalid">Please provide a valid username.</Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
+        <Form.Control.Feedback type="invalid">Please provide a valid password.</Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formGroupEmail">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
+        <Form.Control.Feedback type="invalid">Please provide a valid email.</Form.Control.Feedback>
       </Form.Group>
       <Form.Group controlId="formGroupBirthdate">
         <Form.Label>Birthdate</Form.Label>
-        <Form.Control type="date" placeholder="00-00-0000" value={birthdate} onChange={e => setBirthdate(e.target.value)} />
+        <Form.Control type="date" placeholder="00-00-0000" value={birthdate} onChange={e => setBirthdate(e.target.value)} required />
       </Form.Group>
       <span>
-        <Button variant="primary" onClick={handleSubmit}>Submit</Button>
+        <Button type="submit">Submit</Button>
         {' '}
         <Button variant="secondary" onClick={history.goBack}>Back</Button>
       </span>

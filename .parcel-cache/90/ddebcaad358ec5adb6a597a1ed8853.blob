@@ -1,0 +1,241 @@
+var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "RegistrationView", function () {
+    return RegistrationView;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  require('./registration-view.scss');
+  var _reactBootstrapForm = require('react-bootstrap/Form');
+  var _reactBootstrapFormDefault = _parcelHelpers.interopDefault(_reactBootstrapForm);
+  var _reactBootstrapButton = require('react-bootstrap/Button');
+  var _reactBootstrapButtonDefault = _parcelHelpers.interopDefault(_reactBootstrapButton);
+  var _propTypes = require('prop-types');
+  var _propTypesDefault = _parcelHelpers.interopDefault(_propTypes);
+  var _jsxFileName = "/Users/yaya/Desktop/CF/myFlix-client/src/components/registration-view/registration-view.jsx", _s = $RefreshSig$();
+  function RegistrationView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [birthdate, setBirthdate] = _react.useState('');
+    const [usernameError, setUsernameError] = _react.useState({});
+    const [emailError, setEmailError] = _react.useState({});
+    const [passwordError, setPasswordError] = _react.useState({});
+    const [confirmPasswordError, setconfirmPasswordError] = _react.useState({});
+    const [birthdateError, setBirthdateError] = _react.useState({});
+    const handleSubmit = e => {
+      e.preventDefault();
+      let setisValid = formValidation();
+      if (setisValid) {
+        _axiosDefault.default.post('https://movieapi-yayacdm.herokuapp.com/users', {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthdate: birthdate
+        }).then(response => {
+          const data = response.data;
+          console.log(data);
+          window.open('/', '_self');
+          // the second argument '_self' is necessary so that the page will open in the current tab
+          alert("You have sucessfully registered.");
+        }).catch(error => {
+          if (error.response && error.response.status === 400) {
+            alert('The value you entered is not valid.');
+          }
+        });
+        console.log(username, password, email, birthdate);
+      }
+      ;
+    };
+    const formValidation = () => {
+      const usernameError = {};
+      const emailError = {};
+      const passwordError = {};
+      const birhdateError = {};
+      let isValid = true;
+      if (username.trim().length < 5) {
+        usernameError.usernameShort = "Must be alphanumeric and contains at least 5 characters";
+        isValid = false;
+      } else if (password.trim().length < 4) {
+        passwordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
+        isValid = false;
+      } else if (!email.includes(".") || !email.includes("@")) {
+        emailError.emailNotEmail = "A valid email address is required.";
+        isValid = false;
+      } else if (birthdate === '') {
+        birhdateError.noBirthdate = "Please enter a birthdate";
+        isValid = false;
+      }
+      setUsernameError(usernameError);
+      setEmailError(emailError);
+      setPasswordError(passwordError);
+      setconfirmPasswordError(confirmPasswordError);
+      setBirthdateError(birhdateError);
+      return isValid;
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default, {
+        className: "RegForm",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formGroupUsername",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80,
+          columnNumber: 9
+        }
+      }, "Username"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "text",
+        placeholder: "Enter username",
+        value: username,
+        onChange: e => setUsername(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formGroupPassword",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84,
+          columnNumber: 9
+        }
+      }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "password",
+        placeholder: "Password",
+        value: password,
+        onChange: e => setPassword(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formGroupEmail",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88,
+          columnNumber: 9
+        }
+      }, "Password"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "email",
+        placeholder: "Email",
+        value: email,
+        onChange: e => setEmail(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formGroupBirthdate",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 91,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 9
+        }
+      }, "Birthdate"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "date",
+        placeholder: "00-00-0000",
+        value: birthdate,
+        onChange: e => setBirthdate(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93,
+          columnNumber: 9
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 95,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        variant: "primary",
+        onClick: handleSubmit,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 96,
+          columnNumber: 9
+        }
+      }, "Submit"), ' ', /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        variant: "secondary",
+        onClick: history.goBack,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98,
+          columnNumber: 9
+        }
+      }, "Back")))
+    );
+  }
+  _s(RegistrationView, "Esyl0H7ptXejorQBaJRARPem+7I=");
+  _c = RegistrationView;
+  RegistrationView.propTypes = {
+    register: _propTypesDefault.default.shape({
+      Username: _propTypesDefault.default.string.isRequired,
+      Password: _propTypesDefault.default.string.isRequired,
+      Email: _propTypesDefault.default.string.isRequired,
+      Birthdate: _propTypesDefault.default.string.isRequired
+    })
+  };
+  var _c;
+  $RefreshReg$(_c, "RegistrationView");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
