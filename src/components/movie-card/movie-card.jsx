@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Favorite from '../movie-card/Favorite'
 
 import { Link } from "react-router-dom";
 
@@ -18,6 +19,7 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>
+          <Favorite />
         </Card.Body>
       </Card>
     );
