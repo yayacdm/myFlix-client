@@ -1,0 +1,41 @@
+.MovieView {
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.movie-poster {
+  padding-bottom: 20px;
+}
+
+.movie-title, .movie-description, .movie-year {
+  padding: 5px;
+}
+.LoginForm {
+  margin: auto;
+  max-width: 200px;
+  align-content: center;
+}
+
+
+.RegForm {
+  margin: auto;
+  max-width: 250px;
+}
+
+h1 {
+  text-align: center;
+  padding: 15px;
+  text-decoration: underline;
+}
+
+.Container {
+  margin: 50px;
+}
+
+.myFlixApplication {
+  font-family: "Source Code Pro", monospace;
+}
+/*# sourceMappingURL=index.HASH_REF_ad96edda20c035904a50a4ac8d10935c.css.map */
