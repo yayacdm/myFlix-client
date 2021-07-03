@@ -54,3 +54,9 @@ LoginView.propTypes = {
   }),
   onLoggedIn: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) => dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);
