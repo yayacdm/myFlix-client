@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
