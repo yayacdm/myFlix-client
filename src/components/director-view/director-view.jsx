@@ -13,16 +13,15 @@ export class DirectorView extends React.Component {
       <Jumbotron fluid className="DirectorView">
         <div className="director-view">
           <div className="director-name">
-            <span className="label">Director: </span>
             <span className="value">{director.Name}</span>
-          </div>
-          <div className="director-bio">
-            <span className="label">Bio: </span>
-            <span className="value">{director.Bio}</span>
           </div>
           <div className="director-birth">
             <span className="label">Born: </span>
             <span className="value">{director.Birth}</span>
+          </div>
+          <div className="director-bio">
+            <span className="label">Bio: </span>
+            <span className="value">{director.Bio}</span>
           </div>
           <Button variant="secondary" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
         </div>

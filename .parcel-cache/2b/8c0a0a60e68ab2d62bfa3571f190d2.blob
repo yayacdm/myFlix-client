@@ -1,0 +1,246 @@
+var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "MovieView", function () {
+    return MovieView;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrap = require('react-bootstrap');
+  var _reactBootstrapButton = require('react-bootstrap/Button');
+  var _reactBootstrapButtonDefault = _parcelHelpers.interopDefault(_reactBootstrapButton);
+  require('./movie-view.scss');
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  var _reactRouterDom = require("react-router-dom");
+  var _propTypes = require('prop-types');
+  var _propTypesDefault = _parcelHelpers.interopDefault(_propTypes);
+  var _jsxFileName = "/Users/yaya/Desktop/CF/myFlix-client/src/components/movie-view/movie-view.jsx";
+  class MovieView extends _reactDefault.default.Component {
+    handleAdd() {
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      _axiosDefault.default.post(`https://movieapi-yayacdm.herokuapp.com/users/${user}` + "/movies/" + this.props.movie._id, {}, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(response => {
+        console.log(response);
+        alert(this.props.movie.Title + " has been added to your favorites!");
+      });
+    }
+    handleRemove() {
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      _axiosDefault.default.delete(`https://movieapi-yayacdm.herokuapp.com/users/${user}` + "/movies/" + this.props.movie._id, {}, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(response => {
+        console.log(response);
+        alert(this.props.movie.Title + " has been removed from your favorites!");
+      });
+    }
+    render() {
+      const {movie, onBackClick} = this.props;
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Jumbotron, {
+          fluid: true,
+          className: "MovieView",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41,
+            columnNumber: 7
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "movie-view",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 42,
+            columnNumber: 9
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "movie-poster",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("img", {
+          src: movie.ImagePath,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44,
+            columnNumber: 13
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "movie-title",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 47,
+            columnNumber: 13
+          }
+        }, "Title: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "value",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 48,
+            columnNumber: 13
+          }
+        }, movie.Title)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "movie-description",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51,
+            columnNumber: 13
+          }
+        }, "Description: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "value",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 52,
+            columnNumber: 13
+          }
+        }, movie.Description)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "movie-year",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55,
+            columnNumber: 13
+          }
+        }, "Released: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "value",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56,
+            columnNumber: 13
+          }
+        }, movie.Year)), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+          variant: "secondary",
+          size: "sm",
+          onClick: () => {
+            onBackClick(null);
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 58,
+            columnNumber: 11
+          }
+        }, "Back"), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
+          to: `/directors/${movie.Director.Name}`,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 60,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+          variant: "link",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 61,
+            columnNumber: 13
+          }
+        }, "Director")), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
+          to: `/genres/${movie.Genre.Name}`,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+          variant: "link",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65,
+            columnNumber: 13
+          }
+        }, "Genre"))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 68,
+            columnNumber: 9
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+          variant: "danger",
+          className: "mr-1 mt-1",
+          onClick: () => {
+            this.addFavorite(movie);
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69,
+            columnNumber: 11
+          }
+        }, "Favorite")))
+      );
+    }
+  }
+  ;
+  MovieView.propTypes = {
+    movie: _propTypesDefault.default.shape({
+      _id: _propTypesDefault.default.string.isRequired,
+      Title: _propTypesDefault.default.string.isRequired,
+      Description: _propTypesDefault.default.string.isRequired,
+      ImagePath: _propTypesDefault.default.string,
+      Genre: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+      }),
+      Director: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Bio: _propTypesDefault.default.string.isRequired,
+        Birth: _propTypesDefault.default.string
+      })
+    }),
+    onBackClick: _propTypesDefault.default.func.isRequired
+  };
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

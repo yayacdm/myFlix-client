@@ -1,0 +1,19 @@
+.DirectorView {
+  text-align: center;
+}
+
+.director-name {
+  font-size: large;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.director-name, .director-bio, .director-birth {
+  padding: 5px;
+}
+
+.director-birth {
+  padding-bottom: 20px;
+}

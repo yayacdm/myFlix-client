@@ -1,0 +1,15 @@
+.DirectorView {
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.movie-poster {
+  padding-bottom: 20px;
+}
+
+.movie-title, .movie-description, .movie-year {
+  padding: 5px;
+}
