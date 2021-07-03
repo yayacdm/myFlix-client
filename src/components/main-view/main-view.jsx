@@ -117,11 +117,9 @@ class MainView extends React.Component {
                   <Button variant="link" className="navbar-link text-light">Profile</Button>
                 </Link>
                 <Link to={`/`}>
-                  <Button variant="link" className="navbar-link text-light"
-                    onClick={() => this.onLoggedOut()}
-                  >Logout</Button>
+                  <Button variant="link" className="navbar-link text-light" onClick={() => this.onLoggedOut()}>Logout</Button>
                 </Link >
-              </ul >
+              </ul>
             </Navbar >
           </Container>
 
