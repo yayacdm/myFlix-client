@@ -1,4 +1,4 @@
 node_modules
 .cache
 .DS_Store
-parce-cache
+parcel-cache
