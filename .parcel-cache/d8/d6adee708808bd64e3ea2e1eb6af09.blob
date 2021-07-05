@@ -1,0 +1,20 @@
+.MovieView {
+  text-align: center;
+}
+
+.movie-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.movie-poster {
+  padding-bottom: 20px;
+}
+
+.movie-title, .movie-description, .movie-year {
+  padding: 5px;
+}

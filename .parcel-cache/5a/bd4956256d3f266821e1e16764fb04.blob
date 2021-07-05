@@ -1,0 +1,56 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "SET_MOVIES", function () {
+  return SET_MOVIES;
+});
+_parcelHelpers.export(exports, "SET_FILTER", function () {
+  return SET_FILTER;
+});
+_parcelHelpers.export(exports, "SET_USER", function () {
+  return SET_USER;
+});
+_parcelHelpers.export(exports, "UPDATE_USER", function () {
+  return UPDATE_USER;
+});
+_parcelHelpers.export(exports, "setMovies", function () {
+  return setMovies;
+});
+_parcelHelpers.export(exports, "setFilter", function () {
+  return setFilter;
+});
+_parcelHelpers.export(exports, "setUser", function () {
+  return setUser;
+});
+_parcelHelpers.export(exports, "updateUser", function () {
+  return updateUser;
+});
+const SET_MOVIES = 'SET_MOVIES';
+const SET_FILTER = 'SET_FILTER';
+const SET_USER = 'SET_USER';
+const UPDATE_USER = 'UPDATE_USER';
+function setMovies(value) {
+  return {
+    type: SET_MOVIES,
+    value
+  };
+}
+function setFilter(value) {
+  return {
+    type: SET_FILTER,
+    value
+  };
+}
+function setUser(value) {
+  console.log('SET_USER action triggered');
+  return {
+    type: SET_USER,
+    value
+  };
+}
+function updateUser(value) {
+  console.log('UPDATE_USER action triggered');
+  return {
+    type: UPDATE_USER,
+    value
+  };
+}

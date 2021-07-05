@@ -1,0 +1,88 @@
+var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrapCol = require('react-bootstrap/Col');
+  var _reactBootstrapColDefault = _parcelHelpers.interopDefault(_reactBootstrapCol);
+  var _reactRedux = require('react-redux');
+  var _visibilityFilterInputVisibilityFilterInput = require('../visibility-filter-input/visibility-filter-input');
+  var _visibilityFilterInputVisibilityFilterInputDefault = _parcelHelpers.interopDefault(_visibilityFilterInputVisibilityFilterInput);
+  var _movieCardMovieCard = require('../movie-card/movie-card');
+  var _jsxFileName = "/Users/yaya/Desktop/CF/myFlix-client/src/components/movies-list/movies-list.jsx";
+  const mapStateToProps = state => {
+    const {visibilityFilter} = state;
+    return {
+      visibilityFilter
+    };
+  };
+  function MoviesList(props) {
+    const {movies, visibilityFilter} = props;
+    let filteredMovies = movies;
+    if (visibilityFilter !== '') {
+      filteredMovies = movies.filter(m => m.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
+    }
+    if (!movies) return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "main-view",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 23
+        }
+      })
+    );
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, null, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+        md: 12,
+        style: {
+          margin: '1em'
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_visibilityFilterInputVisibilityFilterInputDefault.default, {
+        visibilityFilter: visibilityFilter,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 7
+        }
+      })), filteredMovies.map(m => /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+        md: 4,
+        key: m._id,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
+        movie: m,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 9
+        }
+      }))))
+    );
+  }
+  _c = MoviesList;
+  exports.default = _reactRedux.connect(mapStateToProps)(MoviesList);
+  var _c;
+  $RefreshReg$(_c, "MoviesList");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

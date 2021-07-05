@@ -6,6 +6,10 @@ import Container from "react-bootstrap/Container";
 import { Button, Form, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Jumbotron } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+import { updateUser } from '../../actions/actions';
+import './profile-view.scss';
 
 export class ProfileView extends React.Component {
   constructor(props) {
@@ -78,6 +82,7 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
+
   handleUpdate(e) {
     let token = localStorage.getItem("token");
     // console.log({ token });
@@ -157,156 +162,120 @@ export class ProfileView extends React.Component {
         <Container>
           <Row className="justify-content-md-center">
             <Col md={12}>
-              <Jumbotron fluid className="ProfileView">
-                <div className="profile-view">
-                  <div className="profile-name">
-                    <span className="label">Username: </span>
-                    <span className="value">{user.Username}</span>
-                  </div>
-                  <div className="profile-email">
-                    <span className="label">Email: </span>
-                    <span className="value">{user.Email}</span>
-                  </div>
-                  <div className="profile-birthday">
-                    <span className="label">Birthdate: </span>
-                    <span className="value">{user.Birthday}</span>
-                  </div>
+              <Jumbotron>
+                <div className="favoriteMovies" style={{ float: "center", textAlign: "center" }}>
+                  <Card.Text className="mt-200" as='h3'>Favorite Movies:</Card.Text>
+                  <Row className='mb-20'>
+                    {FavoriteMovieList.map((movie) => {
+                      return (
+                        <Col md={3} key={movie._id}>
+                          <div key={movie._id}>
+                            <Card className='mb-20'>
+                              <Card.Img variant="top" src={movie.ImagePath} />
+                              <Card.Body>
+                                <Link to={`/movies/${movie._id}`}>
+                                  <Card.Title as='h6'>{movie.Title}</Card.Title>
+                                </Link>
+                                <Button className='mb-30' onClick={() => this.removeFavorite(movie)}>Remove</Button>
+                              </Card.Body>
+                            </Card>
+                          </div>
+                        </Col>
+                      );
+                    })}
+                  </Row>
                 </div>
               </Jumbotron>
 
-              <Form className="justify-content-md-center mb-30">
-                <h1 style={{ textAlign: "center" }}>Update Profile Details</h1>
-
-                <Form.Group controlId="formUsername">
-                  <Form.Label>Username: </Form.Label>
-                  <FormControl size="sm"
-                    type="text"
-                    name="Username"
-                    value={this.state.Username}
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Change username" />
-                  {Object.keys(UsernameError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {UsernameError[key]}
-                      </div>
-                    );
-                  })}
-
-                </Form.Group>
-                <Form.Group controlId="formPassword">
-                  <Form.Label>Password: </Form.Label>
-                  <FormControl size="sm"
-                    type="password"
-                    name="Password"
-                    value={this.state.Password}
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Enter your password or Change password" />
-                  {Object.keys(PasswordError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {PasswordError[key]}
-                      </div>
-                    );
-                  })}
-
-                </Form.Group>
-                <Form.Group controlId="formEmail">
-                  <Form.Label>Email: </Form.Label>
-                  <FormControl
-                    size="sm"
-                    type="email"
-                    name="Email"
-                    value={this.state.Email}
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Change Email" />
-                  {Object.keys(EmailError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {EmailError[key]}
-                      </div>
-                    );
-                  })}
-
-                </Form.Group>
-                <Form.Group controlId="formBirthdate">
-                  <Form.Label>Date of Birth: </Form.Label>
-                  <FormControl
-                    size="sm"
-                    type="date"
-                    name="Birthdate"
-                    value={this.state.Birthdate}
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Change Birthdate" />
-                  {Object.keys(BirthdateError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {BirthdateError[key]}
-                      </div>
-                    );
-                  })}
-
-                </Form.Group>
-
-                <Link to={`/users/${this.state.Username}`}>
-                  <Button className="mb-2" variant="dark"
-                    type="link"
-                    size="md"
-                    block
-                    onClick={(e) => this.handleUpdate(e)}
-                  >
-                    Save changes
-                    </Button>
-                </Link>
-
-                <Link to={`/`}>
-                  <Button className="mb-2"
-                    variant="primary"
-                    type="submit"
-                    size="md"
-                    block
-                  >
-                    Back to Main
-                  </Button>
-                </Link>
-
-                <Button className="mb-2" variant="danger"
-                  size="md"
-                  block
-                  onClick={() => this.handleDelete()}
-                >
-                  Delete Account
-                </Button>
-              </Form>
-
-              <div
-                className="favoriteMovies"
-                style={{
-                  float: "center",
-                  textAlign: "center",
-                }}
-              >
-                <Card.Text className="mt-200" as='h3'>Favorites:</Card.Text>
-                <Row className='mb-20'>
-                  {FavoriteMovieList.map((movie) => {
-                    return (
-                      <Col md={3} key={movie._id}>
-                        <div key={movie._id}>
-                          <Card className='mb-20'>
-                            <Card.Img variant="top" src={movie.ImagePath} />
-                            <Card.Body>
-                              <Link to={`/movies/${movie._id}`}>
-                                <Card.Title as='h6'>{movie.Title}</Card.Title>
-                              </Link>
-                              <Button className='mb-30' onClick={() => this.removeFavorite(movie)}>Remove</Button>
-                            </Card.Body>
-                          </Card>
+              <Jumbotron className="profile-view">
+                <Form className="justify-content-md-center">
+                  <h1 style={{ textAlign: "center" }}>Update Profile Details</h1>
+                  <Form.Group controlId="formUsername">
+                    <Form.Label>Username: </Form.Label>
+                    <FormControl size="sm"
+                      type="text"
+                      name="Username"
+                      value={this.state.Username}
+                      onChange={(e) => this.handleChange(e)}
+                      placeholder="Change username" />
+                    {Object.keys(UsernameError).map((key) => {
+                      return (
+                        <div key={key} style={{ color: "red" }}>
+                          {UsernameError[key]}
                         </div>
-                      </Col>
-                    );
-                  })}
-                </Row>
-              </div>
+                      );
+                    })}
+                  </Form.Group>
+                  <Form.Group controlId="formPassword">
+                    <Form.Label>Password: </Form.Label>
+                    <FormControl size="sm"
+                      type="password"
+                      name="Password"
+                      value={this.state.Password}
+                      onChange={(e) => this.handleChange(e)}
+                      placeholder="Enter current password or Change password" />
+                    {Object.keys(PasswordError).map((key) => {
+                      return (
+                        <div key={key} style={{ color: "red" }}>
+                          {PasswordError[key]}
+                        </div>
+                      );
+                    })}
+                  </Form.Group>
+                  <Form.Group controlId="formEmail">
+                    <Form.Label>Email: </Form.Label>
+                    <FormControl
+                      size="sm"
+                      type="email"
+                      name="Email"
+                      value={this.state.Email}
+                      onChange={(e) => this.handleChange(e)}
+                      placeholder="Change Email" />
+                    {Object.keys(EmailError).map((key) => {
+                      return (
+                        <div key={key} style={{ color: "red" }}>
+                          {EmailError[key]}
+                        </div>
+                      );
+                    })}
+                  </Form.Group>
+                  <Form.Group controlId="formBirthdate">
+                    <Form.Label>Date of Birth: </Form.Label>
+                    <FormControl
+                      size="sm"
+                      type="date"
+                      name="Birthdate"
+                      value={this.state.Birthdate}
+                      onChange={(e) => this.handleChange(e)}
+                      placeholder="Change Birthdate" />
+                    {Object.keys(BirthdateError).map((key) => {
+                      return (
+                        <div key={key} style={{ color: "red" }}>
+                          {BirthdateError[key]}
+                        </div>
+                      );
+                    })}
+                  </Form.Group>
+
+                  <Link to={`/users/${this.state.Username}`}>
+                    <Button className="mb-2" variant="success"
+                      type="link"
+                      size="md"
+                      block
+                      onClick={(e) => this.handleUpdate(e)}
+                    >
+                      Save changes
+                    </Button>
+                  </Link>
+                </Form>
+              </Jumbotron>
+              <Jumbotron>
+                <h1 style={{ textAlign: "center" }}>Delete Account</h1>
+                <h3 style={{ textAlign: "center" }}>There is no undoing this action.</h3>
+                <br></br>
+                <Button className="mb-2" variant="danger" size="lg" block onClick={() => this.handleDelete()}> Delete Account
+                </Button>
+              </Jumbotron>
             </Col>
           </Row>
         </Container>
@@ -317,3 +286,12 @@ export class ProfileView extends React.Component {
 ProfileView.propTypes = {
   movies: PropTypes.array.isRequired
 };
+
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
