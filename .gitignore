@@ -3,3 +3,5 @@ node_modules
 .DS_Store
 parcel-cache
 parcel-cache
+parcelcache
+.parcel-cache
