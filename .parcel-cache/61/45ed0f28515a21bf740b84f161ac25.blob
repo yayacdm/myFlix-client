@@ -1,7 +1,0 @@
-.login-button {
-  display: inline-block;
-}
-
-.login-form {
-  display: inline-block;
-}

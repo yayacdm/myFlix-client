@@ -1,9 +1,0 @@
-.login-button {
-  display: inline-block;
-}
-
-.login-form {
-  display: block;
-  flex-direction: column;
-  padding-left: 10px;
-}

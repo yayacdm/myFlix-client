@@ -1,8 +1,0 @@
-.login-button {
-  display: flex;
-  flex-direction: column;
-}
-.my-flix {
-  color: steelblue;
-}
-/*# sourceMappingURL=index.HASH_REF_b8991b59c49073275f7eb8fa6ef9830a.css.map */
