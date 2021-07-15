@@ -1,4 +1,0 @@
-.login-button {
-  display: block;
-  flex-direction: column;
-}

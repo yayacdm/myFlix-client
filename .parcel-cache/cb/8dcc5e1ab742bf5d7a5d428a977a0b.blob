@@ -1,4 +1,0 @@
-.login-button {
-  flex: auto;
-  text-align: center;
-}

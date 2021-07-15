@@ -1,7 +1,0 @@
-.MovieView {
-  text-align: center;
-}
-
-.label {
-  font-weight: bold;
-}
