@@ -14,7 +14,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     /* Send a request to the server for authentication */
-    axios.post('https://movieapi-yayacdm.herokuapp.com/login', {
+    axios.post('http://localhost:8010/proxy/login', {
       Username: username,
       Password: password
     })
