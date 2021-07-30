@@ -21,6 +21,8 @@ export class MovieView extends React.Component {
 
     axios.post(url, "", {
       headers: { Authorization: `Bearer ${token}` },
+      //Username: "user",
+      //Favorites: movie._id,
     })
       .then((response) => {
         console.log(response);
